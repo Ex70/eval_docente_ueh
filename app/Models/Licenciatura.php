@@ -12,5 +12,5 @@ class Licenciatura extends Model
     protected $fillable = [
         'siglas',
         'nombre'
-    ]
+    ];
 }
