@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LicenciaturaController;
+use App\Http\Controllers\ProgramaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,3 +28,9 @@ Route::post('/licenciaturas/agregarLicenciatura',[LicenciaturaController::class,
 Route::get('/licenciaturas/borrar/{id}', [LicenciaturaController::class, 'destroy']);
 Route::get('/licenciaturas/editar/{id}',[LicenciaturaController::class, 'edit']);
 Route::post('/licenciaturas/editar/{id}', [LicenciaturaController::class, 'update']);
+
+Route::get('/programas',[ProgramaController::class,'index']);
+Route::post('/programas/agregarPrograma',[ProgramaController::class,'create']);
+Route::get('/programas/borrar/{id}', [ProgramaController::class, 'destroy']);
+Route::get('/programas/editar/{id}',[ProgramaController::class, 'edit']);
+Route::post('/programas/editar/{id}', [ProgramaController::class, 'update']);

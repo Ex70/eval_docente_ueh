@@ -14,7 +14,6 @@ class ProgramaController extends Controller
 
     public function create(Request $req){
         $programa = new Programa();
-        $programa->siglas = $req->siglas;
         $programa->nombre = $req->nombre;
         $programa->save();
         return redirect('/programas');
@@ -28,7 +27,6 @@ class ProgramaController extends Controller
     public function update(Request $req){
         $programa=Programa::find($req->id);
         $programa->update([
-            'siglas' => $req->siglas,
             'nombre' => $req->nombre
         ]);
         return redirect('/programas');
