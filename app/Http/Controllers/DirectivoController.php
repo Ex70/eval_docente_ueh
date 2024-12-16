@@ -5,61 +5,39 @@ namespace App\Http\Controllers;
 use App\Models\Directivo;
 use Illuminate\Http\Request;
 
-class DirectivoController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+class DirectivoController extends Controller{
+    public function index(){
+        $directivos = Directivo::all();
+        return view ('directivos.index')->with("directivos",$directivos);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function create(Request $req){
+        $directivo = new Directivo();
+        $directivo->nombre = $req->nombre;
+        $directivo->correo = $req->correo;
+        $directivo->foto = $req->foto;
+        $directivo->save();
+        return redirect('/directivos');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function edit(Request $req){
+        $directivo = Directivo::find($req->id);
+        return view('directivos.editar')->with("directivo",$directivo);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Directivo $directivo)
-    {
-        //
+    public function update(Request $req){
+        $docente=Directivo::find($req->id);
+        $docente->update([
+            'nombre' => $req->nombre,
+            'correo' => $req->correo,
+            'foto' => $req->foto
+        ]);
+        return redirect('/directivos');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Directivo $directivo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Directivo $directivo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Directivo $directivo)
-    {
-        //
+    public function destroy(Request $req){
+        $directivo = Directivo::find($req->id);
+        $directivo->delete();
+        return redirect('/directivos');
     }
 }
