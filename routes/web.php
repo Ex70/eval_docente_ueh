@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\DirectivoController;
+use App\Http\Controllers\DocenteController;
+use App\Http\Controllers\LicenciaturaController;
+use App\Http\Controllers\ProgramaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +24,27 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/licenciaturas',[LicenciaturaController::class,'index']);
+Route::post('/licenciaturas/agregarLicenciatura',[LicenciaturaController::class,'create']);
+Route::get('/licenciaturas/borrar/{id}', [LicenciaturaController::class, 'destroy']);
+Route::get('/licenciaturas/editar/{id}',[LicenciaturaController::class, 'edit']);
+Route::post('/licenciaturas/editar/{id}', [LicenciaturaController::class, 'update']);
+
+Route::get('/programas',[ProgramaController::class,'index']);
+Route::post('/programas/agregarPrograma',[ProgramaController::class,'create']);
+Route::get('/programas/borrar/{id}', [ProgramaController::class, 'destroy']);
+Route::get('/programas/editar/{id}',[ProgramaController::class, 'edit']);
+Route::post('/programas/editar/{id}', [ProgramaController::class, 'update']);
+
+Route::get('/docentes',[DocenteController::class,'index']);
+Route::post('/docentes/agregarDocente',[DocenteController::class,'create']);
+Route::get('/docentes/borrar/{id}', [DocenteController::class, 'destroy']);
+Route::get('/docentes/editar/{id}',[DocenteController::class, 'edit']);
+Route::post('/docentes/editar/{id}', [DocenteController::class, 'update']);
+
+Route::get('/directivos',[DirectivoController::class,'index']);
+Route::post('/directivos/agregarDirectivo',[DirectivoController::class,'create']);
+Route::get('/directivos/borrar/{id}', [DirectivoController::class, 'destroy']);
+Route::get('/directivos/editar/{id}',[DirectivoController::class, 'edit']);
+Route::post('/directivos/editar/{id}', [DirectivoController::class, 'update']);
