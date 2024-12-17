@@ -5,61 +5,36 @@ namespace App\Http\Controllers;
 use App\Models\Semestre;
 use Illuminate\Http\Request;
 
-class SemestreController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
+class SemestreController extends Controller{
+    public function index(){
+        $semestres = Semestre::all();
+        return view ('semestres.index')->with("semestres",$semestres);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function create(Request $req){
+        $semestre = new Semestre();
+        $semestre->nombre = $req->nombre;
+        $semestre->grupo = $req->grupo;
+        $semestre->save();
+        return redirect('/semestres');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function edit(Request $req){
+        $semestre = Semestre::find($req->id);
+        return view('semestres.editar')->with("semestre",$semestre);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Semestre $semestre)
-    {
-        //
+    public function update(Request $req){
+        $semestre=Semestre::find($req->id);
+        $semestre->update([
+            'nombre' => $req->nombre
+        ]);
+        return redirect('/semestres');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Semestre $semestre)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Semestre $semestre)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Semestre $semestre)
-    {
-        //
+    public function destroy(Request $req){
+        $semestre = Semestre::find($req->id);
+        $semestre->delete();
+        return redirect('/semestres');
     }
 }
