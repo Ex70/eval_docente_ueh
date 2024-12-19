@@ -8,8 +8,9 @@ use App\Models\Materia;
 use App\Models\Programa;
 use App\Models\Semestre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class MateriaController extends Controller
+class CuestionariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +22,7 @@ class MateriaController extends Controller
         $docentes = Docente::all();
         $materias = Materia::all();
         // dd($depreciaciones);
-        return view('materias.index', compact('semestres','programas','licenciaturas','docentes','materias'));
+        return view('cuestionarios.index', compact('semestres','programas','licenciaturas','docentes','materias'));
     }
 
     /**
@@ -43,7 +44,7 @@ class MateriaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Materia $materia)
+    public function show(string $id)
     {
         //
     }
@@ -51,7 +52,7 @@ class MateriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Materia $materia)
+    public function edit(string $id)
     {
         //
     }
@@ -59,7 +60,7 @@ class MateriaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Materia $materia)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -67,19 +68,15 @@ class MateriaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Materia $materia)
+    public function destroy(string $id)
     {
         //
     }
 
-    public function add(Request $req){
-        $materia = new Materia();
-        $materia->nombre = $req->nombre;
-        $materia->id_semestre = $req->id_semestre;
-        $materia->id_programa = $req->id_programa;
-        $materia->id_licenciatura = $req->id_licenciatura;
-        $materia->id_docente = $req->id_docente;
-        $materia->save();
-        return redirect('/materias');
+    public function consulta(Request $req){
+        // dd($_POST);
+        $sql = "SELECT * from materias where materias.id_semestre=".$_POST['grupo']." and materias.id_programa=".$_POST['programa']." and materias.id_docente NOT IN (SELECT docentes.id from docentes where docentes.nombre IN(SELECT cuestionarios.docente FROM cuestionarios WHERE cuestionarios.correo='".$_POST['correo']."'));";
+        $materias = DB::select($sql);
+        return $materias;
     }
 }

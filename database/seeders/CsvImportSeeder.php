@@ -15,26 +15,26 @@ class CsvImportSeeder extends Seeder
     public function run(): void
     {
         $csv = Reader::createFromPath(database_path() . '/csv/ejemplo.csv', 'r');
+        $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
 
         foreach ($csv as $record) {
             DB::table('cuestionarios')->insert([
-                'col1' => utf8_encode($record['col1']),
-                'col2' => utf8_encode($record['col2']),
-                'col3' => utf8_encode($record['col3']),
-                'col4' => utf8_encode($record['col4']),
-                'col5' => utf8_encode($record['col5']),
-                'col6' => utf8_encode($record['col6']),
-                'col7' => utf8_encode($record['col7']),
-                'col8' => utf8_encode($record['col8']),
-                'col9' => utf8_encode($record['col9']),
-                'col10' => utf8_encode($record['col10']),
-                'col11' => utf8_encode($record['col11']),
-                'col12' => utf8_encode($record['col12']),
-                'col13' => utf8_encode($record['col13']),
-                'col14' => utf8_encode($record['col14']),
-                'col15' => utf8_encode($record['col15']),
-                'col16' => utf8_encode($record['col16'])
+                'marca_temporal' => utf8_encode($record['marca_temporal']),
+                'correo' => utf8_encode($record['correo']),
+                'docente' => utf8_encode($record['docente']),
+                'pregunta1' => utf8_encode($record['pregunta1']),
+                'pregunta2' => utf8_encode($record['pregunta2']),
+                'pregunta3' => utf8_encode($record['pregunta3']),
+                'pregunta4' => utf8_encode($record['pregunta4']),
+                'pregunta5' => utf8_encode($record['pregunta5']),
+                'pregunta6' => utf8_encode($record['pregunta6']),
+                'pregunta7' => utf8_encode($record['pregunta7']),
+                'pregunta8' => utf8_encode($record['pregunta8']),
+                'pregunta9' => utf8_encode($record['pregunta9']),
+                'pregunta10' => utf8_encode($record['pregunta10']),
+                'pregunta11' => utf8_encode($record['pregunta11']),
+                'pregunta12' => utf8_encode($record['pregunta12'])
             ]);
         }
     }

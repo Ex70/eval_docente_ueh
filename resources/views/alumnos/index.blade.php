@@ -11,8 +11,8 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <div class="card p-3">
-                    <h5>Agregar nuevo producto</h5>
-                    <form method="POST" enctype="multipart/form-data" action="/productos/agregarProductos">
+                    <h5>Agregar nuevo alumno</h5>
+                    <form method="POST" enctype="multipart/form-data" action="/alumnos/agregarAlumno">
                         @csrf
                         <div class="form-group mb-3">
                             <label class="form-label">Concepto</label>

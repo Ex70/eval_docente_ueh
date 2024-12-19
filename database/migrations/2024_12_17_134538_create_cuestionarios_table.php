@@ -13,22 +13,21 @@ return new class extends Migration
     {
         Schema::create('cuestionarios', function (Blueprint $table) {
             $table->id();
-            $table->string('col1');
-            $table->string('col2');
-            $table->string('col3');
-            $table->string('col4');
-            $table->string('col5');
-            $table->string('col6');
-            $table->string('col7');
-            $table->string('col8');
-            $table->string('col9');
-            $table->string('col10');
-            $table->string('col11');
-            $table->string('col12');
-            $table->string('col13');
-            $table->string('col14');
-            $table->string('col15');
-            $table->longText('col16',255)->nullable();
+            $table->string('marca_temporal');
+            $table->string('correo');
+            $table->string('docente');
+            $table->string('pregunta1');
+            $table->string('pregunta2');
+            $table->string('pregunta3');
+            $table->string('pregunta4');
+            $table->string('pregunta5');
+            $table->string('pregunta6');
+            $table->string('pregunta7');
+            $table->string('pregunta8');
+            $table->string('pregunta9');
+            $table->string('pregunta10');
+            $table->string('pregunta11');
+            $table->longText('pregunta12',255)->nullable();
             $table->timestamps();
         });
     }

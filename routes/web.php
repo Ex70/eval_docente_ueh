@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CuestionariosController;
 use App\Http\Controllers\DirectivoController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\LicenciaturaController;
+use App\Http\Controllers\MateriaController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\SemestreController;
 use Illuminate\Support\Facades\Route;
@@ -55,3 +57,9 @@ Route::post('/semestres/agregarSemestre',[SemestreController::class,'create']);
 Route::get('/semestres/borrar/{id}', [SemestreController::class, 'destroy']);
 Route::get('/semestres/editar/{id}',[SemestreController::class, 'edit']);
 Route::post('/semestres/editar/{id}', [SemestreController::class, 'update']);
+
+Route::get('/materias',[MateriaController::class,'index']);
+Route::post('/materias/agregarMateria', [MateriaController::class, 'add']);
+
+Route::get('/cuestionarios',[CuestionariosController::class,'index']);
+Route::post('/cuestionarios/consulta', [CuestionariosController::class, 'consulta']);
