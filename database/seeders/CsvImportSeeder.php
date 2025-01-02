@@ -14,7 +14,7 @@ class CsvImportSeeder extends Seeder
      */
     public function run(): void
     {
-        $csv = Reader::createFromPath(database_path() . '/csv/ejemplo.csv', 'r');
+        $csv = Reader::createFromPath(database_path() . '/csv/ejemplo2.csv', 'r');
         $csv->setDelimiter(';');
         $csv->setHeaderOffset(0);
 

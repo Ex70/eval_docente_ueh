@@ -11,4 +11,8 @@ class Programa extends Model
     protected $fillable = [
         'nombre'
     ];
+
+    public function materias(){
+        return $this->hasMany(Materia::class,'id_programa','id');
+    }
 }

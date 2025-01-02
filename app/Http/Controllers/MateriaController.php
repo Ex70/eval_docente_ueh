@@ -19,8 +19,10 @@ class MateriaController extends Controller
         $programas = Programa::all();
         $licenciaturas = Licenciatura::all();
         $docentes = Docente::all();
+        // $programa = Programa::find(1);
+        // $materias = $programas->materias;
         $materias = Materia::all();
-        // dd($depreciaciones);
+        // dd($materias);
         return view('materias.index', compact('semestres','programas','licenciaturas','docentes','materias'));
     }
 
@@ -51,9 +53,9 @@ class MateriaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Materia $materia)
-    {
-        //
+    public function edit(Request $req){
+        $materia = Materia::find($req->id);
+        return view('materias.editar')->with("materia",$materia);
     }
 
     /**

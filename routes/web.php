@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlumnoController;
 use App\Http\Controllers\CuestionariosController;
 use App\Http\Controllers\DirectivoController;
 use App\Http\Controllers\DocenteController;
@@ -60,6 +61,12 @@ Route::post('/semestres/editar/{id}', [SemestreController::class, 'update']);
 
 Route::get('/materias',[MateriaController::class,'index']);
 Route::post('/materias/agregarMateria', [MateriaController::class, 'add']);
+Route::get('/materias/editar/{id}',[MateriaController::class, 'edit']);
+Route::post('/materias/editar/{id}', [MateriaController::class, 'update']);
+
+Route::get('/alumnos',[AlumnoController::class,'index']);
+Route::post('/alumnos/agregarAlumno', [AlumnoController::class, 'add']);
+
 
 Route::get('/cuestionarios',[CuestionariosController::class,'index']);
 Route::post('/cuestionarios/consulta', [CuestionariosController::class, 'consulta']);

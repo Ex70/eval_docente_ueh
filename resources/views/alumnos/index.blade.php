@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Activos EHS - Productos')
+@section('title', 'Evaluación Docente UEH - Alumnos')
 
 @section('content_header')
-    <h1>Productos</h1>
+    <h1>Alumnos</h1>
 @stop
 
 @section('content')
@@ -15,91 +15,56 @@
                     <form method="POST" enctype="multipart/form-data" action="/alumnos/agregarAlumno">
                         @csrf
                         <div class="form-group mb-3">
-                            <label class="form-label">Concepto</label>
-                            <input name="concepto" required class="form-control" placeholder="Ingrese concepto" />
-                            @error('concepto')
+                            <label class="form-label">Matrícula</label>
+                            <input name="matricula" required class="form-control" placeholder="Ingrese matricula" />
+                            @error('matricula')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Código</label>
-                            <input name="codigo" required class="form-control" placeholder="Ingrese código" />
-                            @error('codigo')
+                            <label class="form-label">Correo</label>
+                            <input name="correo" required class="form-control" placeholder="Ingrese correo" />
+                            @error('correo')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Cantidad</label>
-                            <input type="number" name="cantidad" required class="form-control" placeholder="Ingrese cantidad" />
-                            @error('cantidad')
+                            <label class="form-label">Nombre</label>
+                            <input type="text" name="nombre" required class="form-control" placeholder="Ingrese nombre" />
+                            @error('nombre')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Fecha</label>
-                            <input type="date" name="fecha" required class="form-control" placeholder="Ingrese fecha" />
-                            @error('date')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">No. De Serie</label>
-                            <input name="num_serie" required class="form-control" placeholder="Ingrese No. de Serie" />
-                            @error('num_serie')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">Seleccione tipo de activo</label>
-                            <select required name="id_tipo_activo" class="form-control">
-                                @foreach ($activos as $activo)
-                                    <option value="{{ $activo->id }}">{{ $activo->nombre }}</option>
+                            <label class="form-label">Seleccione el semestre actual</label>
+                            <select required name="id_semestre" class="form-control">
+                                @foreach ($semestres as $semestre)
+                                    <option value="{{ $semestre->id }}">{{ $semestre->nombre }}</option>
                                 @endforeach
                             </select>
-                            @error('id_tipo_activo')
+                            @error('id_semestre')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Seleccione departamento</label>
-                            <select required name="id_departamento" class="form-control">
-                                @foreach ($departamentos as $departamento)
-                                    <option value="{{ $departamento->id }}">{{ $departamento->nombre }}</option>
+                            <label class="form-label">Seleccione Licenciatura</label>
+                            <select required name="id_licenciatura" class="form-control">
+                                @foreach ($licenciaturas as $licenciatura)
+                                    <option value="{{ $licenciatura->id }}">{{ $licenciatura->nombre }}</option>
                                 @endforeach
                             </select>
-                            @error('id_departamento')
+                            @error('id_licenciatura')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="form-group mb-3">
-                            <label class="form-label">Años de vida</label>
-                            <input type="number" name="anios_vida" required class="form-control" placeholder="Años de vida" />
-                            @error('anios_vida')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">Seleccione depreciación</label>
-                            <select required name="id_depreciacion" class="form-control">
-                                @foreach ($depreciaciones as $porciento)
-                                    <option value="{{ $porciento->id }}">{{ $porciento->porciento }}</option>
+                            <label class="form-label">Seleccione Programa</label>
+                            <select required name="id_programa" class="form-control">
+                                @foreach ($programas as $programa)
+                                    <option value="{{ $programa->id }}">{{ $programa->nombre }}</option>
                                 @endforeach
                             </select>
-                            @error('id_depreciacion')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">Monto</label>
-                            <input name="monto" required class="form-control" placeholder="Ingrese monto" />
-                            @error('monto')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="form-group mb-3">
-                            <label class="form-label">Meses Depreciar</label>
-                            <input name="meses_a_depreciar" required class="form-control" placeholder="Meses a depreciar" />
-                            @error('meses_a_depreciar')
+                            @error('id_programa')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
@@ -111,7 +76,7 @@
                             @enderror
                         </div> --}}
                         <div class="form-group mt-3">
-                            <button type="submit" class="btn btn-primary w-100">Agregar producto</button>
+                            <button type="submit" class="btn btn-primary w-100">Agregar alumno</button>
                         </div>
                     </form>
                 </div>

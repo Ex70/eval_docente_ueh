@@ -13,4 +13,8 @@ class Licenciatura extends Model
         'siglas',
         'nombre'
     ];
+
+    public function materias(){
+        return $this->hasMany(Materia::class,'id_licenciatura','id');
+    }
 }

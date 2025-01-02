@@ -16,12 +16,14 @@ return new class extends Migration
             $table->string('matricula');
             $table->string('correo');
             $table->string('nombre');
-            $table->string('foto');
+            $table->string('foto')->nullable();
             $table->unsignedBigInteger('id_semestre');
             $table->unsignedBigInteger('id_licenciatura');
+            $table->unsignedBigInteger('id_programa');
             $table->timestamps();
             $table->foreign('id_semestre')->references('id')->on('semestres');
             $table->foreign('id_licenciatura')->references('id')->on('licenciaturas');
+            $table->foreign('id_programa')->references('id')->on('programas');
         });
     }
 

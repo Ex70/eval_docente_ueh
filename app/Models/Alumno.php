@@ -14,6 +14,7 @@ class Alumno extends Model
         'nombre',
         'foto',
         'id_semestre',
-        'id_licenciatura'
-    ]
+        'id_licenciatura',
+        'id_programa'
+    ];
 }

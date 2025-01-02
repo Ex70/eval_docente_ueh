@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\Licenciatura;
+use App\Models\Programa;
 use App\Models\Semestre;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,9 @@ class AlumnoController extends Controller
     {
         $semestres = Semestre::all();
         $licenciaturas = Licenciatura::all();
+        $programas = Programa::all();
         $alumnos = Alumno::all();
-        return view('alumnos.index', compact('semestres','licenciaturas','alumnos'));
+        return view('alumnos.index', compact('semestres','licenciaturas','alumnos','programas'));
     }
 
     /**
@@ -66,5 +68,17 @@ class AlumnoController extends Controller
     public function destroy(Alumno $alumno)
     {
         //
+    }
+
+    public function add(Request $req){
+        $materia = new Alumno();
+        $materia->matricula = $req->matricula;
+        $materia->correo = $req->correo;
+        $materia->nombre = $req->nombre;
+        $materia->id_semestre = $req->id_semestre;
+        $materia->id_licenciatura = $req->id_licenciatura;
+        $materia->id_programa = $req->id_programa;
+        $materia->save();
+        return redirect('/alumnos');
     }
 }

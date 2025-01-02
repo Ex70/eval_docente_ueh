@@ -50,6 +50,84 @@
                 </div>
             </div>
         </div>
+        <table align="center" style="border: 3px #000000 solid">
+            <thead>
+                <tr>
+                    <th style="border: 3px #000000 solid">N°</th>
+                    <th style="border: 3px #000000 solid">Fotografía</th>
+                    <th style="border: 3px #000000 solid">Nombre del docente</th>
+                    <th style="border: 3px #000000 solid">Asignatura</th>
+                    <th style="border: 3px #000000 solid">Grupo</th>
+                    <th style="border: 3px #000000 solid"># Alumnos</th>
+                    <th style="border: 3px #000000 solid">Eval. Alumnos %</th>
+                    <th style="border: 3px #000000 solid">% total</th>
+                    <th style="border: 3px #000000 solid">Horas Ciclo</th>
+                    <th style="border: 3px #000000 solid">Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2" style="border: 3px #000000 solid">1</td>
+                    <td rowspan="2" style="border: 3px #000000 solid"> </td>
+                    <td rowspan="2" style="border: 3px #000000 solid">Edgar Hernández Martínez</td>
+                    <td style="border: 3px #000000 solid">Estructura de Datos II</td>
+                    <td style="border: 3px #000000 solid">ISC301</td>
+                    <td style="border: 3px #000000 solid">9</td>
+                    <td style="border: 3px #000000 solid">Promedio 1</td>
+                    <td rowspan="2" style="border: 3px #000000 solid">Promedio 2</td>
+                    <td rowspan="2" style="border: 3px #000000 solid">4 Horas</td>
+                    <td rowspan="2" style="border: 3px #000000 solid">Observaciones totales</td>
+                </tr>
+                <tr>
+                    <td style="border: 3px #000000 solid">Cell 1x2</td>
+                    <td style="border: 3px #000000 solid">Cell 2x2</td>
+                    <td style="border: 3px #000000 solid">Cell 3x2</td>
+                    <td style="border: 3px #000000 solid">Cell 4x2</td>
+                </tr>
+                <tr>
+                    <td style="border: 3px #000000 solid">Cell 1x3</td>
+                    <td style="border: 3px #000000 solid">Cell 2x3</td>
+                    <td style="border: 3px #000000 solid">Cell 3x3</td>
+                    <td style="border: 3px #000000 solid">Cell 4x3</td>
+                </tr>
+                <tr>
+                    <td style="border: 3px #000000 solid">Cell 1x4</td>
+                    <td style="border: 3px #000000 solid">Cell 2x4</td>
+                    <td style="border: 3px #000000 solid">Cell 3x4</td>
+                    <td style="border: 3px #000000 solid">Cell 4x4</td>
+                    <td style="border: 3px #000000 solid">Cell 5x4</td>
+                    <td style="border: 3px #000000 solid">Cell 6x4</td>
+                    <td style="border: 3px #000000 solid">Cell 7x4</td>
+                    <td style="border: 3px #000000 solid">Cell 8x4</td>
+                    <td style="border: 3px #000000 solid">Cell 9x4</td>
+                    <td style="border: 3px #000000 solid">Cell 10x4</td>
+                </tr>
+                <tr>
+                    <td style="border: 3px #000000 solid">Cell 1x5</td>
+                    <td style="border: 3px #000000 solid">Cell 2x5</td>
+                    <td style="border: 3px #000000 solid">Cell 3x5</td>
+                    <td style="border: 3px #000000 solid">Cell 4x5</td>
+                    <td style="border: 3px #000000 solid">Cell 5x5</td>
+                    <td style="border: 3px #000000 solid">Cell 6x5</td>
+                    <td style="border: 3px #000000 solid">Cell 7x5</td>
+                    <td style="border: 3px #000000 solid">Cell 8x5</td>
+                    <td style="border: 3px #000000 solid">Cell 9x5</td>
+                    <td style="border: 3px #000000 solid">Cell 10x5</td>
+                </tr>
+                <tr>
+                    <td style="border: 3px #000000 solid">Cell 1x6</td>
+                    <td style="border: 3px #000000 solid">Cell 2x6</td>
+                    <td style="border: 3px #000000 solid">Cell 3x6</td>
+                    <td style="border: 3px #000000 solid">Cell 4x6</td>
+                    <td style="border: 3px #000000 solid">Cell 5x6</td>
+                    <td style="border: 3px #000000 solid">Cell 6x6</td>
+                    <td style="border: 3px #000000 solid">Cell 7x6</td>
+                    <td style="border: 3px #000000 solid">Cell 8x6</td>
+                    <td style="border: 3px #000000 solid">Cell 9x6</td>
+                    <td style="border: 3px #000000 solid">Cell 10x6</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 @stop
 

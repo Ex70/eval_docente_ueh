@@ -71,6 +71,38 @@
                     </form>
                 </div>
             </div>
+            <table class="table mt-5">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Licenciatura</th>
+                        <th scope="col">Semestre</th>
+                        <th scope="col">Docente</th>
+                        {{-- <th scope="col">Docente</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (count($materias) > 0)
+                        @foreach ($materias as $materia)
+                            <tr>
+                                <th>{{ $materia->id }}</th>
+                                <th>{{ $materia->nombre }}</th>
+                                <th>{{ $materia->licenciatura->siglas}}</th>
+                                <th>{{ $materia->semestre->nombre}}</th>
+                                <th>{{ $materia->docente->nombre}}</th>
+                                <th><a href="/materias/editar/{{ $materia->id }}" class="btn btn-primary">Editar</a>
+                                    <a href="/materias/borrar/{{ $materia->id }}" class="btn btn-danger">Borrar</a>
+                                </th>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <th>Sin información</th>
+                        </tr>
+                    @endif
+                </tbody>
+            </table>
         </div>
     </div>
 @stop
